@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Venta</title>
-    <link rel="stylesheet" href="./css/show.css">
+    <link rel="stylesheet" href="../css/show.css">
 </head>
 <body>
     
 <div class="container2" style="">
-    <a href="./saleProduct.php"><button type="submit" class="boton2">Regresar</button></a>
+    <a href="../pageHome.php"><button type="submit" class="boton2">Regresar</button></a>
 </div>
 <?php
-  require_once "./db/conexion.php";
+  require_once "../db/conexion.php";
   ?>
     <center>
     <h1 style="color:white">Resumen de venta</h1>

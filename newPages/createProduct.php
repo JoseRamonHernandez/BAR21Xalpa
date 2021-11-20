@@ -5,23 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de Productos</title>
-    <link rel="stylesheet" href="./css/form.css"> 
-    <link rel="stylesheet" href="./css/pageHome.css">
+    <link rel="stylesheet" href="../css/form.css"> 
+    <link rel="stylesheet" href="../css/pageHome.css">
 </head>
 <body>
 <?php
-  require_once "./db/conexion.php";
+  require_once "../db/conexion.php";
   ?>
   
   <div class="container2">
-    <a href="./pageHome.php"><button type="submit" class="boton">Inicio</button></a>
+    <a href="../pageHome.php"><button type="submit" class="boton" title="regresar al inicio">Regresar</button></a>
 </div>
 <form method="GET" action="createProduct.php" class="form">
     <center><h2>Registro Para Producto Nuevo</h2></center>
         <p>Nombre </p><input type="text" name="nombreP" placeholder="Nombre del producto: " required>
         <p>Precio </p><input type="number" name="precioP" placeholder="Precio del producto:" required>
         <p>Descripción  </p><textarea class="form-control" aria-label="With textarea" type="text" name="descripcionP" placeholder="(No es necesario)" ></textarea>
-        <p>No es necesario</p><input type="file" name="imagen" class="" required>
+        <p>No es necesario</p><input type="file" name="imagen" class="" >
         <button action="submit" name="enviar"> Guardar
     </form>
     
@@ -41,7 +41,7 @@ if($resultado)
 {
   
   ?>
-  <script> window.location="./createProduct.php"; 
+  <script> window.location="../pageHome.php"; 
   alert("Registro Exitoso!");
   </script>
   <?php

@@ -5,25 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Venta</title>
-    <link rel="stylesheet" href="./css/pageHome.css">
-    <link rel="stylesheet" href="./css/sale.css">
+    <link rel="stylesheet" href="../css/pageHome.css">
+    <link rel="stylesheet" href="../css/sale.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     
 </head>
 <body>
 <?php
-  require_once "./db/conexion.php";
+  require_once "../db/conexion.php";
   ?>
 <div class="container2">
-    <a href="./pageHome.php"><button type="submit" class="boton">Inicio</button></a>
-    <a href="./showPage.php"><button type="submit" class="boton">Ver resumen de ventas</button></a>
-</div>
+    <a href="../pageHome.php"><button type="submit" class="boton">Inicio</button></a>
+  </div>
 <div class="container">
         <div class="row">
 
 <?php
-    $consulta= "SELECT * FROM products";
+    $nombre = $_GET['nombre'];
+    $consulta= "SELECT * FROM products WHERE nombrep = '$nombre'";
     $ejecutarconsulta= mysqli_query($db,$consulta);
     $verfilas= mysqli_num_rows($ejecutarconsulta);
     $fila= mysqli_fetch_array($ejecutarconsulta);
@@ -40,23 +40,21 @@
             }
             else
             {
-                for($x=0; $x<=$fila; $x++)
-                {   
-                    echo' <div class="col-sm-6">
-                    <form method="GET" action="saleProduct.php" class="form">
+                
+                    echo' <center> <div class="col-sm-6">
+                    <form method="GET" action="ventaProduct.php" class="form">
                     <h1><font color="red">'.$fila[1].'</font></h1>
-                    <h5><font color="red">No modificar nombre</font></h5>
-                        <p>Nombre </p><input type="text" name="nombreP" value="'.$fila[1].'" required>
-                        <p>Precio </p><input type="number" name="precioP" value="'.$fila[2].'" disabled>
-                        <p>Cantidad </p><input type="number" name="cantidad" value="0" required>
-                        <br>
-                        <input type="submit" value=" Realizar compra" class="boton" name="comprar">
+                    <h3><font color="red">Precio: $'.$fila[2].'</font></h3>
+                    <p>Nombre del Producto a vender: </p><input type="text" name="nombreP" value="'.$fila[1].'" readonly="readonly">    
+                    <p>Cantidad: </p><input type="number" name="cantidad" placeholder="Ingrese la cantidad de productos a vender:" required>
+                        
+                        <input style="margin-top:10px;" type="submit" value=" Realizar compra" class="boton" name="comprar">
                     </form>
-                    </div>
+                    </div></center>
                    
                 ';
                 $fila=mysqli_fetch_array($ejecutarconsulta);
-            }
+            
          }
      }
 
@@ -95,7 +93,7 @@ if($resultado)
 }
 else{
   ?>
-  <script> window.location="./saleProduct.php"; 
+  <script> window.location="./ventaProduct.php"; 
   alert("Ocurrio un error, intentelo mas tarde");
   </script>
   <?php

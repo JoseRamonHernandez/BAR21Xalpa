@@ -6,27 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Actualizar Productos</title>
     <!-- <link rel="stylesheet" href="./css/form.css"> -->
-    <link rel="stylesheet" href="./css/buscador.css">  
-    <link rel="stylesheet" href="./css/pageHome.css">
+    <link rel="stylesheet" href="../css/buscador.css">  
+    <link rel="stylesheet" href="../css/pageHome.css">
 </head>
 <body>
 <?php
-  require_once "./db/conexion.php";
+  require_once "../db/conexion.php";
   ?>
 <div class="container2">
-    <a href="./pageHome.php"><button type="submit" class="boton">Inicio</button></a>
+    <a href="../pageHome.php"><button type="submit" class="boton">Inicio</button></a>
 </div>
 <br>
 <center>
 <h1><font color="white">Formulario para editar datos de los productos</font></h1>
 </center>
-  <form method="GET" action="updateProduct.php" class="form1">
-        <input type="text" id="s" name="nombre" value="" placeholder="Ingrese el Nombre correctamente escrito del producto que modificara su precio"  />
-        <button type="submit" name="button" class="">Buscar</button>
-    </form>
+
 
     <?php
-  if(isset($_GET['button'])==1){
     $nombre = $_GET['nombre'];
 
     $consulta= "SELECT * FROM products WHERE nombreP = '$nombre'";
@@ -48,11 +44,11 @@
             { 
                 ?>
                 <form method="GET" action="" class="form">
-                    <h3><font color="red">No cambiar el nombre</font></h3>
+                    <h3><font color="red">Datos actuales</font></h3>
                     <h6>(si quieres cambiar el nombre y/o imagen, tendrás que eliminar el producto y volver a registrarlo)</h6>
-                <p>Nombre </p><input type="text" name="nombreP" value="<?php echo $fila[1] ?>" required>
+                <p>Nombre </p><input type="text" name="nombreP" value="<?php echo $fila[1] ?>" readonly="readonly">
                 <p>Precio </p><input type="number" name="precioP" value="<?php echo $fila[2] ?>" required>
-                <p>Descripción </p><input type="text" name="descripcionP" value="<?php echo $fila[3] ?>" required>
+                <p>Descripción </p><input type="text" name="descripcionP" value="<?php echo $fila[3] ?>" >
         <br>
                 <button action="submit" name="enviar" class=""> Actualizar
               
@@ -61,7 +57,7 @@
     <?php
     }
 }
-}   
+  
 
     if(isset($_GET['enviar'])==1)
     {
@@ -77,7 +73,7 @@ WHERE nombreP='$nombreP'";
 $resultado= mysqli_query($db, $modi);
 if($resultado)
 {?>
-    <script> window.location="./updateProduct.php"; 
+    <script> window.location="../pageHome.php"; 
     alert("Actualizacion Exitosa");
     </script>
     <?php

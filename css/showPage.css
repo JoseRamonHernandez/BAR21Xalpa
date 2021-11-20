@@ -1,9 +1,8 @@
 body {
-    /* background: url("../img/image7.jpg") no-repeat center center fixed; */
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+    background-image: linear-gradient(to top, #48c6ef 0%, #6f86d6 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;	
+	background-size: cover;
 	}
 
 .boton2{
@@ -24,8 +23,8 @@ form{
 }
 
 input{
-    background:grey; 
-    color:black; 
+    background:rgb(255, 255, 255); 
+    color:rgb(0, 0, 0); 
     border:0; 
     border-radius:10px;
 }
