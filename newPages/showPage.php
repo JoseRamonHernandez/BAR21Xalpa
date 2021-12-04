@@ -78,7 +78,7 @@ if(isset($_GET['enviar'])==1)
             }
             else
             {
-                echo('<h2 style="color:red;">Con un total de ganacias de $'.$total.', considerando los gastos extras en el dia </h2>'); 
+                echo('<h2 style="color:white;"><b>Con un total de ganacias de $'.$fila2[0].' y considerando los gastos extras en el dia que son: $'.$fila3[0].', da como resultado: $'.$total.'</b></h2>'); 
                 for($x=0; $x<=$fila; $x++)
                 {   
                     echo'  
