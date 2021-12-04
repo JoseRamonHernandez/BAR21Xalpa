@@ -1,0 +1,30 @@
+body {
+    background-image: linear-gradient(to top, #efde48 0%, #d66f6f 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;	
+	background-size: cover;
+	}
+
+.boton2{
+    border:0; 
+    border-radius:10px; 
+    background:white; 
+    color:black;
+}
+
+.boton2:hover{
+background: rgb(0, 0, 0);
+color:white;
+
+}
+
+form{
+    margin-top:20px;
+}
+
+input{
+    background:rgb(255, 255, 255); 
+    color:rgb(0, 0, 0); 
+    border:0; 
+    border-radius:10px;
+}

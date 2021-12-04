@@ -22,6 +22,7 @@
    <!-- <a href="./updateProduct.php"><button type="submit" class="boton">Actualizar Productos</button></a> -->
    <!-- <a href="./deleteProduct.php"><button type="submit" class="boton">Eliminar Productos</button></a> -->
     <a href="./newPages/showPage.php"><button type="submit" class="boton">Ver resumen de ventas</button></a>
+    <a href="./newPages/gastos.php"><button type="submit" class="boton">Gastos</button></a>
     <a href="./index.php"><button type="submit" class="boton">Cerrar Sesión</button></a>
 </div>
 <br>

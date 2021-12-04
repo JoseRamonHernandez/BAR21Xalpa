@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desglose de ventas</title>
-    <link rel="stylesheet" href="../css/showPage.css">
+    <title>Desglose de gastos</title>
+    <link rel="stylesheet" href="../css/showPage2.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
 </head>
@@ -18,14 +18,15 @@
   require_once "../db/conexion.php";
   ?>
 
-    <form method="GET" action="showPage.php" >
+    <form method="GET" action="showGastos.php" >
         <p>Selecciona la fecha: <input type="date" name="date">
         
         <button name="enviar" method="submit"class="boton2" >Search</button></p>
 </form>
 <center>
-<h2 >Se muestra el desglose de ventas de la fecha: </h2>
+<h2 >Se muestra el desglose de GASTOS de la fecha: </h2>
 </center>
+
 <?php
 if(isset($_GET['enviar'])==1)
 {
@@ -41,30 +42,24 @@ if(isset($_GET['enviar'])==1)
 <table class="table">
         <thead>
           <tr>
-                <th class="bg-dark text-white">Producto</th>
-              <th class="bg-dark text-white">Cantidad Vendida</th>
-              <th class="bg-dark text-white">Total</th>
+                <th class="bg-dark text-white">Cantidad</th>
+              <th class="bg-dark text-white">Descripción</th>
               <th class="bg-dark text-white">Hora</th>
              
           </tr>
         </thead>
 <?php
-    $consulta= "SELECT nombreP, cantidadP, total, hora FROM ventas WHERE fecha = '$date' ";
+    $consulta= "SELECT gasto, descripcion, hora FROM gastos WHERE fecha = '$date' ";
     $ejecutarconsulta= mysqli_query($db,$consulta);
     $verfilas= mysqli_num_rows($ejecutarconsulta);
     $fila= mysqli_fetch_array($ejecutarconsulta);
 
-    $consulta2="SELECT SUM(total) FROM ventas WHERE fecha = '$date'";
+    $consulta2="SELECT SUM(gasto) FROM gastos WHERE fecha = '$date'";
     $ejecutarconsulta2= mysqli_query($db,$consulta2);
     $verfilas2= mysqli_num_rows($ejecutarconsulta2);
     $fila2= mysqli_fetch_array($ejecutarconsulta2);
-
-    $consulta3="SELECT SUM(gasto) FROM gastos WHERE fecha = '$date'";
-    $ejecutarconsulta3= mysqli_query($db,$consulta3);
-    $verfilas3= mysqli_num_rows($ejecutarconsulta3);
-    $fila3= mysqli_fetch_array($ejecutarconsulta3);
    
-  $total = $fila2[0] - $fila3[0];
+  
 // echo $verfilas;
     if(!$ejecutarconsulta)
     {
@@ -78,7 +73,7 @@ if(isset($_GET['enviar'])==1)
             }
             else
             {
-                echo('<h2 style="color:red;">Con un total de ganacias de $'.$total.', considerando los gastos extras en el dia </h2>'); 
+                echo('<h2 style="color:red;">Con un total de GASTOS de $'.$fila2[0].' </h2>'); 
                 for($x=0; $x<=$fila; $x++)
                 {   
                     echo'  
@@ -86,7 +81,6 @@ if(isset($_GET['enviar'])==1)
                     <td>'.$fila[0].'</td>
                     <td>'.$fila[1].'</td>
                     <td>'.$fila[2].'</td>
-                    <td>'.$fila[3].'</td>
                     
                     
                 </tr>
