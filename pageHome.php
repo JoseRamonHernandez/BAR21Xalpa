@@ -11,28 +11,24 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     </head>
 <body>
-<?php
-  require_once "./db/conexion.php";
-  ?>
+<?php require_once "./db/conexion.php"; ?>
   
-  <div class="container2">
+<nav>
     <a href="./pageHome.php"><button type="submit" class="boton">Inicio</button></a>
-   <!-- <a href="./saleProduct.php"><button type="submit" class="boton">Realizar Venta</button></a> -->
-   <a href="./newPages/createProduct.php"><button type="submit" class="boton">Registrar Nuevo Producto</button></a>
-   <!-- <a href="./updateProduct.php"><button type="submit" class="boton">Actualizar Productos</button></a> -->
-   <!-- <a href="./deleteProduct.php"><button type="submit" class="boton">Eliminar Productos</button></a> -->
+<!-- <a href="./saleProduct.php"><button type="submit" class="boton">Realizar Venta</button></a> -->
+    <a href="./newPages/createProduct.php"><button type="submit" class="boton">Registrar Nuevo Producto</button></a>
+<!-- <a href="./updateProduct.php"><button type="submit" class="boton">Actualizar Productos</button></a> -->
+<!-- <a href="./deleteProduct.php"><button type="submit" class="boton">Eliminar Productos</button></a> -->
     <a href="./newPages/showPage.php"><button type="submit" class="boton">Ver resumen de ventas</button></a>
     <a href="./newPages/gastos.php"><button type="submit" class="boton">Gastos</button></a>
     <a href="./index.php"><button type="submit" class="boton">Cerrar Sesión</button></a>
-</div>
-<br>
-<center>
-    <h1><font color="white">Menú</font></h1>
-    </center>
-<br>
+</nav>
+
+<h2 class="title" >Menú</h2>
+    
 <form class="form" method="GET" action="pageHome.php">
-<input type="text" name="producto" class="login-username" autofocus="true" placeholder="Nombre del producto" required>
-<button type="submit" name="buscar" class="login-submit">Buscar</button>
+    <input type="text" name="producto" class="login-username" autofocus="true" placeholder="Nombre del producto" required>
+    <button type="submit" name="buscar" class="login-submit">Buscar</button>
 </form>
 
 <div class="container">
